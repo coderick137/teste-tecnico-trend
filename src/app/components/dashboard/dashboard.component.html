@@ -28,13 +28,13 @@
           <a
             routerLink="/dashboard"
             routerLinkActive="active"
-            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-700 ease-in-out"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-700 ease-in-out cursor-pointer"
           >
             <i class="material-icons text-blue-800 dark:text-gray-200">
               dashboard
             </i>
             <span
-              class="transition-all duration-700 ease-in-out origin-left"
+              class="transition-all duration-700 ease-in-out origin-left "
               [ngClass]="{
                 'translate-x-0 opacity-100': isSidebarOpen,
                 '-translate-x-4 opacity-0': !isSidebarOpen
@@ -48,7 +48,7 @@
           <a
             routerLink="/reports"
             routerLinkActive="active"
-            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-700 ease-in-out"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-700 ease-in-out cursor-pointer"
           >
             <i class="material-icons text-blue-800 dark:text-gray-200">
               bar_chart
@@ -68,7 +68,7 @@
           <a
             routerLink="/settings"
             routerLinkActive="active"
-            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-700 ease-in-out"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-all duration-700 ease-in-out cursor-pointer"
           >
             <i class="material-icons text-blue-800 dark:text-gray-200">
               settings
@@ -110,7 +110,7 @@
         <button
           routerLink="/"
           routerLinkActive="active"
-          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-400 ease-in-out"
+          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-400 ease-in-out cursor-pointer"
         >
           <i class="material-icons text-blue-800 dark:text-gray-200">
             notifications
@@ -119,14 +119,14 @@
         <button
           routerLink="/about"
           routerLinkActive="active"
-          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-400 ease-in-out"
+          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-400 ease-in-out cursor-pointer"
         >
           <i class="material-icons text-blue-800 dark:text-gray-200">
             person
           </i>
         </button>
         <button
-          class="relative w-14 h-8 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors duration-500"
+          class="relative w-14 h-8 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors duration-500 cursor-pointer"
           (click)="toggleDarkMode()"
           aria-label="Toggle Dark Mode"
         >
