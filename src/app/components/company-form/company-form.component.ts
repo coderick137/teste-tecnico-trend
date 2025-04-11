@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-company-form',
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './company-form.component.html',
   styleUrl: './company-form.component.css',
@@ -19,24 +20,39 @@ export class CompanyFormComponent {
     private companyService: CompanyService
   ) {
     this.companyForm = this.fb.group({
-      id: [null], // Added 'id' property
+      id: [null],
       name: ['', Validators.required],
       cnpj: ['', Validators.required],
       description: [''],
-      chanels: [1, Validators.required],
       thumbnail: [null],
-      users: [1, Validators.required],
       active: [true],
+
       address: this.fb.group({
+        street: [''],
         neighborhood: [''],
         city: [''],
         state: [''],
         zipCode: [''],
       }),
+
       contact: this.fb.group({
         phone: [''],
         email: ['', [Validators.required, Validators.email]],
       }),
+
+      // Módulos ativáveis
+      enableCSAT: [false],
+      enableAI: [false],
+      enableTrendVoip: [false],
+
+      // Limites máximos
+      maxCloudApi: [0, [Validators.min(0)]],
+      maxBusiness: [0, [Validators.min(0)]],
+      maxBusinessPro: [0, [Validators.min(0)]],
+
+      // Plano
+      monthlyValue: [0, [Validators.min(0)]],
+      recurrence: ['Mensal'],
     });
   }
 

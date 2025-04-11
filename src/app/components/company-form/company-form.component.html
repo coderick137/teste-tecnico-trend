@@ -157,47 +157,121 @@
       ></textarea>
     </fieldset>
 
+    <!-- Novo fieldset: Módulos -->
+    <fieldset class="flex flex-col gap-6">
+      <label
+        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+      >
+        <input
+          type="checkbox"
+          class="rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="enableCSAT"
+        />
+        Ativar Módulo CSAT
+      </label>
+
+      <label
+        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+      >
+        <input
+          type="checkbox"
+          class="rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="enableAI"
+        />
+        Ativar Módulo de IA
+      </label>
+
+      <label
+        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+      >
+        <input
+          type="checkbox"
+          class="rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="enableTrendVoip"
+        />
+        Ativar Módulo de TrendVoip
+      </label>
+    </fieldset>
+
+    <!-- Novo fieldset: Canais -->
+    <fieldset class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div>
+        <label
+          for="maxCloudApi"
+          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          >Máx. de canais Cloud API</label
+        >
+        <input
+          id="maxCloudApi"
+          type="number"
+          min="0"
+          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="maxCloudApi"
+        />
+      </div>
+      <div>
+        <label
+          for="maxBusiness"
+          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          >Máx. de canais Business</label
+        >
+        <input
+          id="maxBusiness"
+          type="number"
+          min="0"
+          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="maxBusiness"
+        />
+      </div>
+      <div>
+        <label
+          for="maxBusinessPro"
+          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          >Máx. de canais Business PRO</label
+        >
+        <input
+          id="maxBusinessPro"
+          type="number"
+          min="0"
+          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="maxBusinessPro"
+        />
+      </div>
+    </fieldset>
+
+    <!-- Novo fieldset: Mensalidade e Periodicidade -->
     <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label
-          for="chanels"
+          for="monthlyValue"
           class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
-          >Canais*</label
+          >Mensalidade</label
         >
         <input
-          id="chanels"
+          id="monthlyValue"
           type="number"
-          min="1"
-          formControlName="chanels"
+          min="0"
           class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          formControlName="monthlyValue"
         />
-        @if (companyForm.get('chanels')?.touched &&
-        companyForm.get('chanels')?.invalid) {
-        <p class="mt-1 text-sm text-red-500 dark:text-red-400">
-          Informe um número válido de canais.
-        </p>
-        }
       </div>
 
       <div>
         <label
-          for="users"
+          for="recurrence"
           class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
-          >Usuários*</label
+          >Periodicidade</label
         >
-        <input
-          id="users"
-          type="number"
-          min="1"
-          formControlName="users"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
-        />
-        @if (companyForm.get('users')?.touched &&
-        companyForm.get('users')?.invalid) {
-        <p class="mt-1 text-sm text-red-500 dark:text-red-400">
-          Informe um número válido de usuários.
-        </p>
-        }
+        <select
+          id="recurrence"
+          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+          formControlName="recurrence"
+        >
+          <option value="Mensal">Mensal</option>
+          <option value="Trimestral">Trimestral</option>
+          <option value="Semestral">Semestral</option>
+          <option value="Anual">Anual</option>
+        </select>
       </div>
     </fieldset>
 
