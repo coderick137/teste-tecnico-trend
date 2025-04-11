@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class DashboardComponent implements OnInit {
   public isDarkMode;
   public isSidebarOpen: boolean = false;
+  public showSidebarContent: boolean = false;
 
   constructor(private themeService: ThemeService) {
     this.isDarkMode = this.themeService.darkMode$;
@@ -25,7 +26,14 @@ export class DashboardComponent implements OnInit {
     this.themeService.toggleDarkMode();
   }
 
-  toggleSidebar(): void {
+  toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
+    if (this.isSidebarOpen) {
+      setTimeout(() => {
+        this.showSidebarContent = true;
+      }, 500);
+    } else {
+      this.showSidebarContent = false;
+    }
   }
 }
