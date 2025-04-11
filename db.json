@@ -1,0 +1,88 @@
+{
+  "companies": [
+    {
+      "id": "2",
+      "name": "Company B",
+      "cnpj": "98765432000102",
+      "description": "Description for Company B",
+      "chanels": 3,
+      "thumbnail": null,
+      "users": 15,
+      "active": true,
+      "address": {
+        "neighborhood": "Neighborhood B",
+        "city": "City B",
+        "state": "State B",
+        "zipCode": "23456-789"
+      },
+      "contact": {
+        "phone": "0987654321",
+        "email": "contact@companyb.com"
+      },
+      "createdAt": "2023-10-01T00:00:00Z"
+    },
+    {
+      "id": "3",
+      "name": "Company C",
+      "cnpj": "11223344000103",
+      "description": "Description for Company C",
+      "chanels": 1,
+      "thumbnail": null,
+      "users": 5,
+      "active": false,
+      "address": {
+        "neighborhood": "Neighborhood C",
+        "city": "City C",
+        "state": "State C",
+        "zipCode": "34567-890"
+      },
+      "contact": {
+        "phone": "1122334455",
+        "email": "contact@companyc.com"
+      },
+      "createdAt": "2023-10-01T00:00:00Z"
+    },
+    {
+      "id": "4",
+      "name": "Company D",
+      "cnpj": "22334455000104",
+      "description": "Description for Company D",
+      "chanels": 4,
+      "thumbnail": null,
+      "users": 20,
+      "active": true,
+      "address": {
+        "neighborhood": "Neighborhood D",
+        "city": "City D",
+        "state": "State D",
+        "zipCode": "45678-901"
+      },
+      "contact": {
+        "phone": "2233445566",
+        "email": "contact@companyd.com"
+      },
+      "createdAt": "2023-10-01T00:00:00Z"
+    },
+    {
+      "id": "5",
+      "name": "Company E",
+      "cnpj": "33445566000105",
+      "description": "Description for Company E",
+      "chanels": 2,
+      "thumbnail": null,
+      "users": 8,
+      "active": false,
+      "address": {
+        "neighborhood": "Neighborhood E",
+        "city": "City E",
+        "state": "State E",
+        "zipCode": "56789-012"
+      },
+      "contact": {
+        "phone": "3344556677",
+        "email": "contact@companye.com"
+      },
+      "createdAt": "2023-10-01T00:00:00Z"
+    }
+  ]
+}
