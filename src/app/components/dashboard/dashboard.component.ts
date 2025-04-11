@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DashboardComponent implements OnInit {
   public isDarkMode;
-  public isSidebarOpen: boolean = false; // Adiciona o estado da barra lateral
+  public isSidebarOpen: boolean = false;
 
   constructor(private themeService: ThemeService) {
     this.isDarkMode = this.themeService.darkMode$;
