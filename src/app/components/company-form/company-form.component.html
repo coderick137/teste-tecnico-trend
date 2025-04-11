@@ -1,19 +1,20 @@
 <section
-  class="px-6 py-4 rounded-2xl shadow-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 transition-all duration-200 ease-in-out"
+  class="px-4 sm:px-6 lg:px-8 py-6 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-2xl shadow-lg transition-all duration-300 ease-in-out"
 >
-  <form [formGroup]="companyForm" (ngSubmit)="onSave()" class="space-y-6">
+  <form [formGroup]="companyForm" (ngSubmit)="onSave()" class="space-y-8">
+    <!-- Dados da empresa -->
     <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label
           for="name"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Nome*</label
         >
         <input
           id="name"
           type="text"
           formControlName="name"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         @if (companyForm.get('name')?.touched &&
         companyForm.get('name')?.invalid) {
@@ -26,14 +27,14 @@
       <div>
         <label
           for="cnpj"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >CNPJ*</label
         >
         <input
           id="cnpj"
           type="text"
           formControlName="cnpj"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         @if (companyForm.get('cnpj')?.touched &&
         companyForm.get('cnpj')?.invalid) {
@@ -44,6 +45,7 @@
       </div>
     </fieldset>
 
+    <!-- Contato -->
     <fieldset
       formGroupName="contact"
       class="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -51,14 +53,14 @@
       <div>
         <label
           for="email"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Email*</label
         >
         <input
           id="email"
           type="email"
           formControlName="email"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         @if (contact?.get('email')?.touched && contact?.get('email')?.invalid) {
         <p class="mt-1 text-sm text-red-500 dark:text-red-400">
@@ -70,18 +72,19 @@
       <div>
         <label
           for="phone"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Telefone</label
         >
         <input
           id="phone"
           type="text"
           formControlName="phone"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </fieldset>
 
+    <!-- Endereço -->
     <fieldset
       formGroupName="address"
       class="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -89,183 +92,184 @@
       <div>
         <label
           for="city"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Cidade</label
         >
         <input
           id="city"
           type="text"
           formControlName="city"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       <div>
         <label
           for="state"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Estado</label
         >
         <input
           id="state"
           type="text"
           formControlName="state"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       <div>
         <label
           for="neighborhood"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Bairro</label
         >
         <input
           id="neighborhood"
           type="text"
           formControlName="neighborhood"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       <div>
         <label
           for="zipCode"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >CEP</label
         >
         <input
           id="zipCode"
           type="text"
           formControlName="zipCode"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </fieldset>
 
+    <!-- Descrição -->
     <fieldset>
       <label
         for="description"
-        class="block mb-1 font-medium text-gray-700 dark:text-gray-300"
+        class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
         >Descrição</label
       >
       <textarea
         id="description"
         formControlName="description"
         rows="4"
-        class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
       ></textarea>
     </fieldset>
 
-    <!-- Novo fieldset: Módulos -->
-    <fieldset class="flex flex-col gap-6">
+    <!-- Módulos -->
+    <fieldset class="space-y-3">
       <label
-        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+        class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300"
       >
         <input
           type="checkbox"
-          class="rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-5 h-5 rounded border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
           formControlName="enableCSAT"
         />
         Ativar Módulo CSAT
       </label>
 
       <label
-        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+        class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300"
       >
         <input
           type="checkbox"
-          class="rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-5 h-5 rounded border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
           formControlName="enableAI"
         />
         Ativar Módulo de IA
       </label>
 
       <label
-        class="inline-flex items-center gap-2 text-gray-700 dark:text-gray-300"
+        class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300"
       >
         <input
           type="checkbox"
-          class="rounded bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
+          class="w-5 h-5 rounded border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
           formControlName="enableTrendVoip"
         />
         Ativar Módulo de TrendVoip
       </label>
     </fieldset>
 
-    <!-- Novo fieldset: Canais -->
+    <!-- Canais -->
     <fieldset class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <label
           for="maxCloudApi"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
-          >Máx. de canais Cloud API</label
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
+          >Máx. canais Cloud API</label
         >
         <input
           id="maxCloudApi"
           type="number"
           min="0"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
           formControlName="maxCloudApi"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div>
         <label
           for="maxBusiness"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
-          >Máx. de canais Business</label
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
+          >Máx. canais Business</label
         >
         <input
           id="maxBusiness"
           type="number"
           min="0"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
           formControlName="maxBusiness"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div>
         <label
           for="maxBusinessPro"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
-          >Máx. de canais Business PRO</label
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
+          >Máx. canais Business PRO</label
         >
         <input
           id="maxBusinessPro"
           type="number"
           min="0"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
           formControlName="maxBusinessPro"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </fieldset>
 
-    <!-- Novo fieldset: Mensalidade e Periodicidade -->
+    <!-- Mensalidade e Periodicidade -->
     <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label
           for="monthlyValue"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Mensalidade</label
         >
         <input
           id="monthlyValue"
           type="number"
           min="0"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-blue-500"
           formControlName="monthlyValue"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
       <div>
         <label
           for="recurrence"
-          class="block mb-1 font-semibold text-gray-700 dark:text-gray-300"
+          class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
           >Periodicidade</label
         >
         <select
           id="recurrence"
-          class="w-full p-3 border rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
           formControlName="recurrence"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none"
         >
           <option value="Mensal">Mensal</option>
           <option value="Trimestral">Trimestral</option>
@@ -275,43 +279,48 @@
       </div>
     </fieldset>
 
+    <!-- Upload -->
     <fieldset
-      class="flex flex-col items-center justify-center gap-2 border border-dashed rounded-lg p-10 mt-4 border-gray-300 dark:border-gray-600"
+      class="flex flex-col items-center justify-center gap-2 border border-dashed rounded-xl p-10 border-gray-300 dark:border-gray-600"
     >
-      <label for="thumbnail" class="block text-gray-700 dark:text-gray-300"
+      <label for="thumbnail" class="text-sm text-gray-700 dark:text-gray-300"
         >Selecione os arquivos desejados</label
       >
       <input
         id="thumbnail"
         type="file"
         formControlName="thumbnail"
-        class="file-input bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+        class="file:px-4 file:py-2 file:rounded-md file:border-0 file:bg-blue-600 file:text-white file:hover:bg-blue-700 transition"
       />
     </fieldset>
 
-    <fieldset class="mb-4">
-      <label class="inline-flex items-center">
+    <!-- Ativo -->
+    <fieldset>
+      <label
+        class="inline-flex items-center text-sm text-gray-700 dark:text-gray-300"
+      >
         <input
           type="checkbox"
           formControlName="active"
-          class="mr-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
+          class="mr-2 w-5 h-5 rounded-full border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
         />
         Ativar
       </label>
     </fieldset>
 
-    <footer class="flex gap-4 mt-6 justify-end">
+    <!-- Botões -->
+    <footer class="flex flex-col sm:flex-row gap-4 justify-end mt-6">
       <button
         type="submit"
         [disabled]="companyForm.invalid"
-        class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Cadastrar
       </button>
       <button
         type="button"
         (click)="goToDashboard()"
-        class="bg-gray-600 text-gray-200 px-6 py-2 rounded hover:bg-gray-500 transition"
+        class="w-full sm:w-auto bg-gray-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-500 transition"
       >
         Cancelar
       </button>

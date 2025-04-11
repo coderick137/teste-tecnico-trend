@@ -28,7 +28,6 @@ export class CompanyFormComponent {
       active: [true],
 
       address: this.fb.group({
-        street: [''],
         neighborhood: [''],
         city: [''],
         state: [''],
