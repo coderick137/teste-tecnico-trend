@@ -23,6 +23,7 @@ export class CompanyService {
       thumbnail: null,
       active: true,
       createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
     };
 
     this.http

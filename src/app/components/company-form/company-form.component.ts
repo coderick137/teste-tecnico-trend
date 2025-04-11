@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from '../../service/company.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,10 +13,12 @@ import { CommonModule } from '@angular/common';
 })
 export class CompanyFormComponent {
   readonly companyForm;
+  public companyId: number | null = null;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private companyService: CompanyService
   ) {
     this.companyForm = this.fb.group({
@@ -55,6 +57,14 @@ export class CompanyFormComponent {
     });
   }
 
+  ngOnInit(): void {
+    const idParam = this.route.snapshot.paramMap.get('id');
+    this.companyId = idParam ? +idParam : null;
+    if (this.companyId) {
+      this.loadCompanyData(+this.companyId);
+    }
+  }
+
   get contact() {
     return this.companyForm.get('contact');
   }
@@ -86,6 +96,28 @@ export class CompanyFormComponent {
       this.router.navigate(['/']);
     } catch (error) {
       alert('Erro ao salvar empresa.');
+      console.error(error);
+    }
+  }
+
+  async loadCompanyData(companyId: number): Promise<void> {
+    try {
+      this.companyService.getCompanyById(companyId).subscribe({
+        next: (company) => {
+          if (company) {
+            this.companyForm.patchValue(company);
+          } else {
+            alert('Empresa não encontrada.');
+            this.router.navigate(['/']);
+          }
+        },
+        error: (error) => {
+          alert('Erro ao carregar dados da empresa.');
+          console.error(error);
+        },
+      });
+    } catch (error) {
+      alert('Erro ao carregar dados da empresa.');
       console.error(error);
     }
   }
