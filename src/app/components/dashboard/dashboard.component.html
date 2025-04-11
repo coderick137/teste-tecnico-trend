@@ -1,27 +1,128 @@
-<div>
-  <header
-    class="flex items-center justify-between w-full py-6 px-4 bg-white border-b border-gray-300 dark:bg-gray-800 dark:border-gray-700 relative"
+<div
+  class="flex flex-col h-screen bg-gray-100 dark:bg-gray-900 transition-all duration-500 ease-in-out font-semibold"
+>
+  <!-- Barra lateral esquerda expandida com o menu de navegação e o cabeçalho -->
+  <aside
+    class="fixed top-0 left-0 h-screen bg-white border-r border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-lg transition-all duration-500 ease-in-out"
+    [ngClass]="{ 'w-64': isSidebarOpen, 'w-20': !isSidebarOpen }"
   >
-    <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">
-      Trend | Painel de administração empresarial
-    </h1>
+    <nav class="mt-6">
+      <div class="flex items-center gap-2 py-4 px-2 mb-8 font-bold">
+        <i class="material-icons text-blue-800 dark:text-gray-200"
+          >trending_up</i
+        >
+        @if(isSidebarOpen) {
+        <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">
+          Trend
+        </h1>
+        }
+      </div>
+      <ul class="flex flex-col gap-4 px-2">
+        <li>
+          <a
+            routerLink="/dashboard"
+            routerLinkActive="active"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+          >
+            <i class="material-icons text-blue-800 dark:text-gray-200"
+              >dashboard</i
+            >
+            @if (isSidebarOpen) {
+            <span>Dashboard</span>
+            }
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/reports"
+            routerLinkActive="active"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+          >
+            <i class="material-icons text-blue-800 dark:text-gray-200"
+              >bar_chart</i
+            >
+            @if (isSidebarOpen) {
+            <span>Reports</span>
+            }
+          </a>
+        </li>
+        <li>
+          <a
+            routerLink="/settings"
+            routerLinkActive="active"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
+          >
+            <i class="material-icons text-blue-800 dark:text-gray-200"
+              >settings</i
+            >
+            @if (isSidebarOpen) {
+            <span>Settings</span>
+            }
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <header
+    class="flex items-center justify-between py-6 px-4 bg-white border-b border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-sm transition-all duration-500 ease-in-out"
+    [ngClass]="{ 'ml-64': isSidebarOpen, 'ml-20': !isSidebarOpen }"
+  >
+    <div class="flex items-center gap-4">
+      <button
+        class="text-gray-700 dark:text-gray-200 mt-2 transition-transform duration-300 ease-in-out"
+        (click)="isSidebarOpen = !isSidebarOpen"
+        aria-label="Toggle Sidebar"
+      >
+        <i class="material-icons text-blue-800 dark:text-gray-200">menu</i>
+      </button>
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-gray-200">
+        Trend | Painel de administração empresarial
+      </h1>
+    </div>
 
-    <div class="flex items-center justify-between">
-      <nav class="flex gap-4">
-        <a
+    <div class="flex items-center gap-12">
+      <nav class="flex gap-4 cursor-pointer text-3xl">
+        <button
           routerLink="/"
           routerLinkActive="active"
-          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400"
-          >Notifications</a
+          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
         >
-        <a
+          <i class="material-icons text-blue-800 dark:text-gray-200">
+            notifications
+          </i>
+        </button>
+        <button
           routerLink="/about"
           routerLinkActive="active"
-          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400"
-          >Perfil</a
+          class="text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 transition-colors duration-300 ease-in-out"
         >
-        <a class="focus:outline-none" aria-label="Toggle Dark Mode">
-        </a>
+          <i class="material-icons text-blue-800 dark:text-gray-200">
+            person
+          </i>
+        </button>
+        <button
+          class="relative w-14 h-8 bg-gray-300 dark:bg-gray-700 rounded-full transition-colors duration-300 ease-in-out focus:outline-none"
+          (click)="toggleDarkMode()"
+          aria-label="Toggle Dark Mode"
+        >
+          <span
+            class="absolute top-0.5 left-0.5 w-7 h-7 bg-white dark:bg-gray-900 rounded-full shadow-md transform transition-transform duration-300 ease-in-out"
+            [style.transform]="
+              (isDarkMode | async) ? 'translateX(24px)' : 'translateX(0)'
+            "
+          ></span>
+
+          @if (!(isDarkMode | async)) {
+          <i
+            class="material-icons absolute left-1 top-1 text-yellow-500 text-xl"
+            >light_mode</i
+          >
+          } @if (isDarkMode | async) {
+          <i class="material-icons absolute right-1 top-1 text-gray-200 text-xl"
+            >dark_mode</i
+          >
+          }
+        </button>
       </nav>
     </div>
   </header>
