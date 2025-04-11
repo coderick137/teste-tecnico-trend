@@ -11,8 +11,8 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  public title = 'Empresas';
-  public subtitle = 'As emprasas cadastradas na Plataforma';
+  public title = 'Companies';
+  public subtitle = 'The companies registered on the Platform';
 
   public isDarkMode;
   public isSidebarOpen: boolean = false;
@@ -28,14 +28,14 @@ export class DashboardComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         if (this.router.url.includes('/register')) {
-          this.title = 'Adicionar Empresa';
-          this.subtitle = 'Preencher dados para adicionar empresa';
+          this.title = 'Add Company';
+          this.subtitle = 'Fill in the details to add a company';
         } else if (this.router.url.includes('/edit')) {
-          this.title = 'Editar Empresa';
-          this.subtitle = 'Alterar dados da empresa';
+          this.title = 'Edit Company';
+          this.subtitle = 'Update company details';
         } else {
-          this.title = 'Empresas';
-          this.subtitle = 'As empresas cadastradas na Plataforma';
+          this.title = 'Companies';
+          this.subtitle = 'The companies registered on the Platform';
         }
       }
     });

@@ -10,9 +10,8 @@
       </span>
       <input
         type="text"
-        placeholder="Pesquisar..."
+        placeholder="Search..."
         class="w-full h-10 pl-10 pr-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-opacity-50 text-gray-700 dark:text-gray-200"
-        aria-label="Pesquisar"
       />
     </div>
 
@@ -25,20 +24,20 @@
         class="h-10 px-4 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center gap-2 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer"
       >
         <span class="material-icons">filter_list</span>
-        Ativas/Não ativas
+        Active/Inactive
       </button>
       <button
         class="h-10 px-4 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-300 flex items-center gap-2 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 cursor-pointer"
       >
         <span class="material-icons">filter_list</span>
-        Tipo de canais
+        Channel type
       </button>
       <button
         class="h-10 px-4 bg-blue-500 text-gray-200 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-2 cursor-pointer"
         (click)="goToRegister()"
       >
         <span class="material-icons">add</span>
-        Adicionar
+        Add Company
       </button>
     </div>
   </div>
@@ -52,10 +51,10 @@
     >
       <span class="material-icons text-gray-400 text-6xl mb-4">info</span>
       <p class="text-gray-500 dark:text-gray-300 text-lg font-medium">
-        Nenhuma empresa encontrada.
+        No companies found.
       </p>
       <p class="text-gray-400 dark:text-gray-500 text-sm">
-        Tente ajustar os filtros ou adicionar uma nova empresa.
+        Try adjusting the filters or adding a new company.
       </p>
     </div>
     <table
@@ -67,10 +66,10 @@
       >
         <tr>
           <th scope="col" class="px-6 py-3 border-b dark:border-gray-600">
-            Data de Criação
+            Creation Date
           </th>
           <th scope="col" class="px-6 py-3 border-b dark:border-gray-600">
-            Nome
+            Name
           </th>
           <th scope="col" class="px-6 py-3 border-b dark:border-gray-600">
             CNPJ
@@ -82,28 +81,28 @@
             scope="col"
             class="px-6 py-3 border-b dark:border-gray-600 hidden lg:table-cell"
           >
-            Telefone
+            Phone
           </th>
           <th scope="col" class="px-6 py-3 border-b dark:border-gray-600">
-            Ativa
+            Active
           </th>
           <th
             scope="col"
             class="px-6 py-3 border-b dark:border-gray-600 hidden md:table-cell"
           >
-            Cidade
+            City
           </th>
           <th
             scope="col"
             class="px-6 py-3 border-b dark:border-gray-600 hidden md:table-cell"
           >
-            Estado
+            State
           </th>
           <th
             scope="col"
             class="px-6 py-3 border-b dark:border-gray-600 text-center"
           >
-            Ações
+            Actions
           </th>
         </tr>
       </thead>
@@ -131,7 +130,7 @@
                   !company.active
               }"
             >
-              {{ company.active ? "Sim" : "Não" }}
+              {{ company.active ? "Yes" : "No" }}
             </span>
           </td>
           <td class="px-6 py-3 hidden md:table-cell">

@@ -42,19 +42,19 @@ export class CompanyFormComponent {
       }),
       createdAt: [new Date().toISOString()],
 
-      // Módulos ativáveis
+      // Activatable modules
       enableCSAT: [false],
       enableAI: [false],
       enableTrendVoip: [false],
 
-      // Limites máximos
+      // Maximum limits
       maxCloudApi: [0, [Validators.min(0)]],
       maxBusiness: [0, [Validators.min(0)]],
       maxBusinessPro: [0, [Validators.min(0)]],
 
-      // Plano
+      // Plan
       monthlyValue: [0, [Validators.min(0)]],
-      recurrence: ['Mensal'],
+      recurrence: ['Monthly'],
     });
   }
 
@@ -77,7 +77,7 @@ export class CompanyFormComponent {
   async onSave(): Promise<void> {
     if (this.companyForm.invalid) {
       this.companyForm.markAllAsTouched();
-      alert('Por favor, preencha todos os campos obrigatórios.');
+      alert('Please fill in all required fields.');
       return;
     }
 
@@ -87,14 +87,14 @@ export class CompanyFormComponent {
           this.companyForm.value.id,
           this.companyForm.value
         );
-        alert('Empresa atualizada com sucesso!');
+        alert('Company successfully updated!');
       } else {
         this.companyService.addCompany(this.companyForm.value);
-        alert('Empresa cadastrada com sucesso!');
+        alert('Company successfully registered!');
       }
       this.router.navigate(['/']);
     } catch (error) {
-      alert('Erro ao salvar empresa.');
+      alert('Error saving company.');
       console.error(error);
     }
   }
@@ -106,17 +106,17 @@ export class CompanyFormComponent {
           if (company) {
             this.companyForm.patchValue(company);
           } else {
-            alert('Empresa não encontrada.');
+            alert('Company not found.');
             this.router.navigate(['/']);
           }
         },
         error: (error) => {
-          alert('Erro ao carregar dados da empresa.');
+          alert('Error loading company data.');
           console.error(error);
         },
       });
     } catch (error) {
-      alert('Erro ao carregar dados da empresa.');
+      alert('Error loading company data.');
       console.error(error);
     }
   }

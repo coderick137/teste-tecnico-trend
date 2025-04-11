@@ -2,13 +2,12 @@
   class="px-4 sm:px-6 lg:px-8 py-6 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md shadow-lg transition-all duration-300 ease-in-out"
 >
   <form [formGroup]="companyForm" (ngSubmit)="onSave()" class="space-y-8">
-    <!-- Dados da empresa -->
     <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label
           for="name"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Nome*</label
+          >Name*</label
         >
         <input
           id="name"
@@ -19,7 +18,7 @@
         @if (companyForm.get('name')?.touched &&
         companyForm.get('name')?.invalid) {
         <p class="mt-1 text-sm text-red-500 dark:text-red-400">
-          Nome é obrigatório.
+          Name is required.
         </p>
         }
       </div>
@@ -39,13 +38,12 @@
         @if (companyForm.get('cnpj')?.touched &&
         companyForm.get('cnpj')?.invalid) {
         <p class="mt-1 text-sm text-red-500 dark:text-red-400">
-          CNPJ é obrigatório.
+          CNPJ is required.
         </p>
         }
       </div>
     </fieldset>
 
-    <!-- Contato -->
     <fieldset
       formGroupName="contact"
       class="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -64,7 +62,7 @@
         />
         @if (contact?.get('email')?.touched && contact?.get('email')?.invalid) {
         <p class="mt-1 text-sm text-red-500 dark:text-red-400">
-          Email válido é obrigatório.
+          Valid email is required.
         </p>
         }
       </div>
@@ -73,7 +71,7 @@
         <label
           for="phone"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Telefone</label
+          >Phone</label
         >
         <input
           id="phone"
@@ -84,7 +82,6 @@
       </div>
     </fieldset>
 
-    <!-- Endereço -->
     <fieldset
       formGroupName="address"
       class="grid grid-cols-1 md:grid-cols-2 gap-6"
@@ -93,7 +90,7 @@
         <label
           for="city"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Cidade</label
+          >City</label
         >
         <input
           id="city"
@@ -107,7 +104,7 @@
         <label
           for="state"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Estado</label
+          >State</label
         >
         <input
           id="state"
@@ -121,7 +118,7 @@
         <label
           for="neighborhood"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Bairro</label
+          >Neighborhood</label
         >
         <input
           id="neighborhood"
@@ -135,7 +132,7 @@
         <label
           for="zipCode"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >CEP</label
+          >Zip Code</label
         >
         <input
           id="zipCode"
@@ -146,12 +143,11 @@
       </div>
     </fieldset>
 
-    <!-- Descrição -->
     <fieldset>
       <label
         for="description"
         class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-        >Descrição</label
+        >Description</label
       >
       <textarea
         id="description"
@@ -161,7 +157,6 @@
       ></textarea>
     </fieldset>
 
-    <!-- Módulos -->
     <fieldset class="space-y-3">
       <label
         class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300"
@@ -171,7 +166,7 @@
           class="w-5 h-5 rounded border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
           formControlName="enableCSAT"
         />
-        Ativar Módulo CSAT
+        Enable CSAT Module
       </label>
 
       <label
@@ -182,7 +177,7 @@
           class="w-5 h-5 rounded border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
           formControlName="enableAI"
         />
-        Ativar Módulo de IA
+        Enable AI Module
       </label>
 
       <label
@@ -193,18 +188,18 @@
           class="w-5 h-5 rounded border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
           formControlName="enableTrendVoip"
         />
-        Ativar Módulo de TrendVoip
+        Enable Trend VoIP Module
       </label>
     </fieldset>
 
-    <!-- Canais -->
     <fieldset class="grid grid-cols-1 md:grid-cols-3 gap-6">
       <div>
         <label
           for="maxCloudApi"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Máx. canais Cloud API</label
         >
+          Max. Cloud API Channels
+        </label>
         <input
           id="maxCloudApi"
           type="number"
@@ -217,8 +212,9 @@
         <label
           for="maxBusiness"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Máx. canais Business</label
         >
+          Max. Business Channels
+        </label>
         <input
           id="maxBusiness"
           type="number"
@@ -231,8 +227,9 @@
         <label
           for="maxBusinessPro"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Máx. canais Business PRO</label
         >
+          Max. Business PRO Channels
+        </label>
         <input
           id="maxBusinessPro"
           type="number"
@@ -243,14 +240,14 @@
       </div>
     </fieldset>
 
-    <!-- Mensalidade e Periodicidade -->
     <fieldset class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label
           for="monthlyValue"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Mensalidade</label
         >
+          Monthly Value
+        </label>
         <input
           id="monthlyValue"
           type="number"
@@ -264,8 +261,9 @@
         <label
           for="recurrence"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
-          >Periodicidade</label
         >
+          Recurrence
+        </label>
         <select
           id="recurrence"
           formControlName="recurrence"
@@ -279,12 +277,11 @@
       </div>
     </fieldset>
 
-    <!-- Upload -->
     <fieldset
       class="flex flex-col items-center justify-center gap-2 border border-dashed rounded-md p-10 border-gray-300 dark:border-gray-600"
     >
       <label for="thumbnail" class="text-sm text-gray-700 dark:text-gray-300"
-        >Selecione os arquivos desejados</label
+        >Select the desired files</label
       >
       <input
         id="thumbnail"
@@ -295,7 +292,6 @@
       />
     </fieldset>
 
-    <!-- Ativo -->
     <fieldset>
       <label
         class="inline-flex items-center text-sm text-gray-700 dark:text-gray-300"
@@ -305,25 +301,24 @@
           formControlName="active"
           class="mr-2 w-5 h-5 rounded-full border-gray-400 dark:border-gray-600 bg-gray-200 dark:bg-gray-700 text-blue-600 focus:ring-2 focus:ring-blue-500"
         />
-        Ativar
+        Activate Company
       </label>
     </fieldset>
 
-    <!-- Botões -->
     <footer class="flex flex-col sm:flex-row gap-4 justify-end mt-6">
       <button
         type="submit"
         [disabled]="companyForm.invalid"
         class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {{ companyId ? 'Salvar' : 'Cadastrar' }}
+        {{ companyId ? "Save" : "Register" }}
       </button>
       <button
         type="button"
         (click)="goToDashboard()"
         class="w-full sm:w-auto bg-gray-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-gray-500 transition cursor-pointer"
       >
-        Cancelar
+        Cancel
       </button>
     </footer>
   </form>
