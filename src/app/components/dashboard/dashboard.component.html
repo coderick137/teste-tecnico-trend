@@ -2,21 +2,21 @@
   class="flex flex-col h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-700 ease-in-out font-semibold"
 >
   <aside
-    class="fixed top-0 left-0 h-screen bg-white border-r border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-lg transition-[width] duration-700 ease-in-out"
+    class="fixed top-0 left-0 h-screen bg-white border-r border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-lg transition-all duration-700 ease-in-out"
     [ngClass]="{ 'w-64': isSidebarOpen, 'w-20': !isSidebarOpen }"
   >
     <nav class="mt-6 ml-2">
       <div class="flex items-center gap-4 py-4 px-2 mb-8 font-bold">
         <i
-          class="material-icons text-gray-600 bg-blue-500 rounded-full flex items-center justify-center dark:text-gray-200 p-2 transition-transform duration-500"
+          class="material-icons text-gray-600 bg-blue-500 rounded-full flex items-center justify-center dark:text-gray-200 p-2 transition-transform duration-700"
         >
           business
         </i>
         <h1
           class="text-2xl font-bold text-gray-800 dark:text-gray-200 transition-all duration-700 ease-in-out origin-left"
           [ngClass]="{
-            'translate-x-0 opacity-100 delay-300': isSidebarOpen,
-            '-translate-x-4 opacity-0 delay-0': !isSidebarOpen
+            'translate-x-0 opacity-100': isSidebarOpen,
+            '-translate-x-4 opacity-0': !isSidebarOpen
           }"
         >
           Trend
@@ -36,8 +36,8 @@
             <span
               class="transition-all duration-700 ease-in-out origin-left"
               [ngClass]="{
-                'translate-x-0 opacity-100 delay-200': isSidebarOpen,
-                '-translate-x-4 opacity-0 delay-0': !isSidebarOpen
+                'translate-x-0 opacity-100': isSidebarOpen,
+                '-translate-x-4 opacity-0': !isSidebarOpen
               }"
             >
               Dashboard
@@ -56,8 +56,8 @@
             <span
               class="transition-all duration-700 ease-in-out origin-left"
               [ngClass]="{
-                'translate-x-0 opacity-100 delay-300': isSidebarOpen,
-                '-translate-x-4 opacity-0 delay-0': !isSidebarOpen
+                'translate-x-0 opacity-100': isSidebarOpen,
+                '-translate-x-4 opacity-0': !isSidebarOpen
               }"
             >
               Reports
@@ -76,8 +76,8 @@
             <span
               class="transition-all duration-700 ease-in-out origin-left"
               [ngClass]="{
-                'translate-x-0 opacity-100 delay-400': isSidebarOpen,
-                '-translate-x-4 opacity-0 delay-0': !isSidebarOpen
+                'translate-x-0 opacity-100': isSidebarOpen,
+                '-translate-x-4 opacity-0': !isSidebarOpen
               }"
             >
               Settings
@@ -89,7 +89,7 @@
   </aside>
 
   <header
-    class="flex items-center justify-between py-6 px-4 bg-white border-b border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-sm transition-[margin] duration-700 ease-in-out"
+    class="flex items-center justify-between py-6 px-4 bg-white border-b border-gray-300 dark:bg-gray-800 dark:border-gray-700 shadow-sm transition-all duration-700 ease-in-out"
     [ngClass]="{ 'ml-64': isSidebarOpen, 'ml-20': !isSidebarOpen }"
   >
     <div class="flex items-center gap-4">
@@ -154,7 +154,7 @@
   </header>
 
   <main
-    class="flex-1 bg-gray-100 dark:bg-gray-900 transition-colors duration-700 ease-in-out px-4 py-6"
+    class="flex-1 bg-gray-100 dark:bg-gray-900 transition-all duration-700 ease-in-out px-4 py-6"
     [ngClass]="{ 'ml-64': isSidebarOpen, 'ml-20': !isSidebarOpen }"
   >
     <div>
