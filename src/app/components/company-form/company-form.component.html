@@ -1,5 +1,5 @@
 <section
-  class="px-4 sm:px-6 lg:px-8 py-6 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-2xl shadow-lg transition-all duration-300 ease-in-out"
+  class="px-4 sm:px-6 lg:px-8 py-6 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-md shadow-lg transition-all duration-300 ease-in-out"
 >
   <form [formGroup]="companyForm" (ngSubmit)="onSave()" class="space-y-8">
     <!-- Dados da empresa -->
@@ -14,7 +14,7 @@
           id="name"
           type="text"
           formControlName="name"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         @if (companyForm.get('name')?.touched &&
         companyForm.get('name')?.invalid) {
@@ -34,7 +34,7 @@
           id="cnpj"
           type="text"
           formControlName="cnpj"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         @if (companyForm.get('cnpj')?.touched &&
         companyForm.get('cnpj')?.invalid) {
@@ -60,7 +60,7 @@
           id="email"
           type="email"
           formControlName="email"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         @if (contact?.get('email')?.touched && contact?.get('email')?.invalid) {
         <p class="mt-1 text-sm text-red-500 dark:text-red-400">
@@ -79,7 +79,7 @@
           id="phone"
           type="text"
           formControlName="phone"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </fieldset>
@@ -99,7 +99,7 @@
           id="city"
           type="text"
           formControlName="city"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
@@ -113,7 +113,7 @@
           id="state"
           type="text"
           formControlName="state"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
@@ -127,7 +127,7 @@
           id="neighborhood"
           type="text"
           formControlName="neighborhood"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
@@ -141,7 +141,7 @@
           id="zipCode"
           type="text"
           formControlName="zipCode"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </fieldset>
@@ -157,7 +157,7 @@
         id="description"
         formControlName="description"
         rows="4"
-        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
       ></textarea>
     </fieldset>
 
@@ -210,7 +210,7 @@
           type="number"
           min="0"
           formControlName="maxCloudApi"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div>
@@ -224,7 +224,7 @@
           type="number"
           min="0"
           formControlName="maxBusiness"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
       <div>
@@ -238,7 +238,7 @@
           type="number"
           min="0"
           formControlName="maxBusinessPro"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
     </fieldset>
@@ -256,7 +256,7 @@
           type="number"
           min="0"
           formControlName="monthlyValue"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
 
@@ -269,7 +269,7 @@
         <select
           id="recurrence"
           formControlName="recurrence"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none"
         >
           <option value="Mensal">Mensal</option>
           <option value="Trimestral">Trimestral</option>
@@ -281,7 +281,7 @@
 
     <!-- Upload -->
     <fieldset
-      class="flex flex-col items-center justify-center gap-2 border border-dashed rounded-xl p-10 border-gray-300 dark:border-gray-600"
+      class="flex flex-col items-center justify-center gap-2 border border-dashed rounded-md p-10 border-gray-300 dark:border-gray-600"
     >
       <label for="thumbnail" class="text-sm text-gray-700 dark:text-gray-300"
         >Selecione os arquivos desejados</label
@@ -290,7 +290,8 @@
         id="thumbnail"
         type="file"
         formControlName="thumbnail"
-        class="file:px-4 file:py-2 file:rounded-md file:border-0 file:bg-blue-600 file:text-white file:hover:bg-blue-700 transition"
+        class="file:px-4 file:py-2 file:rounded-md file:border-0 file:bg-blue-600 file:text-white file:hover:bg-blue-700 transition file:cursor-pointer file:mr-2 file:font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500"
+        accept="image/*"
       />
     </fieldset>
 
@@ -313,14 +314,14 @@
       <button
         type="submit"
         [disabled]="companyForm.invalid"
-        class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+        class="w-full sm:w-auto bg-blue-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
         Cadastrar
       </button>
       <button
         type="button"
         (click)="goToDashboard()"
-        class="w-full sm:w-auto bg-gray-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-gray-500 transition"
+        class="w-full sm:w-auto bg-gray-600 text-white px-6 py-3 rounded-md shadow-md hover:bg-gray-500 transition"
       >
         Cancelar
       </button>
