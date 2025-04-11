@@ -3,6 +3,7 @@ import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from '../../service/company.service';
 import { CommonModule } from '@angular/common';
+import { maskZipCode, maskCNPJ, maskPhone } from '../../utils/utils';
 
 @Component({
   selector: 'app-company-form',
@@ -14,6 +15,11 @@ import { CommonModule } from '@angular/common';
 export class CompanyFormComponent {
   readonly companyForm;
   public companyId: number | null = null;
+  public formattedMonthlyValue: string = 'R$ 0,00';
+
+  maskCNPJ = maskCNPJ;
+  maskPhone = maskPhone;
+  maskZipCode = maskZipCode;
 
   constructor(
     private fb: FormBuilder,
@@ -123,5 +129,42 @@ export class CompanyFormComponent {
 
   goToDashboard(): void {
     this.router.navigate(['/']);
+  }
+
+  onCNPJChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const cnpjControl = this.companyForm.get('cnpj');
+    if (cnpjControl && inputElement) {
+      cnpjControl.setValue(maskCNPJ(inputElement.value || ''));
+    }
+  }
+
+  onPhoneChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const phoneControl = this.companyForm.get('contact.phone');
+    if (phoneControl && inputElement) {
+      phoneControl.setValue(maskPhone(inputElement.value || ''));
+    }
+  }
+
+  onZipCodeChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const cepControl = this.companyForm.get('address.zipCode');
+    if (cepControl && inputElement) {
+      cepControl.setValue(maskZipCode(inputElement.value || ''));
+    }
+  }
+
+  onCurrencyChange(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    const rawValue = inputElement.value.replace(/\D/g, '');
+    const numericValue = parseFloat(rawValue) / 100 || 0;
+
+    this.formattedMonthlyValue = numericValue.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    });
+
+    this.companyForm.get('monthlyValue')?.setValue(numericValue);
   }
 }

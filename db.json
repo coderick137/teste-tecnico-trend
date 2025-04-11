@@ -1,67 +1,85 @@
 {
   "companies": [
     {
-      "id": "2",
-      "name": "Company B",
-      "cnpj": "98765432000102",
-      "description": "Description for Company B",
-      "chanels": 3,
+      "id": 1,
+      "name": "Innovative Solutions Inc.",
+      "cnpj": "12345678000101",
+      "description": "A leading company providing innovative solutions in its industry.",
       "thumbnail": null,
-      "users": 15,
       "active": true,
       "address": {
-        "neighborhood": "Neighborhood B",
-        "city": "City B",
-        "state": "State B",
+        "neighborhood": "Tech Valley",
+        "city": "Innovation City",
+        "state": "Tech State",
+        "zipCode": "12345-678"
+      },
+      "contact": {
+        "phone": "+1-800-555-1234",
+        "email": "info@innovativesolutions.com"
+      },
+      "createdAt": "2023-10-01T00:00:00Z",
+      "enableCSAT": false,
+      "enableAI": false,
+      "enableTrendVoip": false,
+      "maxCloudApi": 100,
+      "maxBusiness": 50,
+      "maxBusinessPro": 20,
+      "monthlyValue": 500,
+      "recurrence": "Monthly"
+    },
+    {
+      "id": 2,
+      "name": "Advanced Tech Corp.",
+      "cnpj": "98765432000102",
+      "description": "A dynamic company specializing in advanced technology and customer service.",
+      "thumbnail": null,
+      "active": true,
+      "address": {
+        "neighborhood": "Innovation Park",
+        "city": "Tech City",
+        "state": "Future State",
         "zipCode": "23456-789"
       },
       "contact": {
-        "phone": "0987654321",
-        "email": "contact@companyb.com"
+        "phone": "+1-800-555-9876",
+        "email": "support@advancedtech.com"
       },
-      "createdAt": "2023-10-01T00:00:00Z"
+      "createdAt": "2023-10-01T00:00:00Z",
+      "enableCSAT": true,
+      "enableAI": false,
+      "enableTrendVoip": true,
+      "maxCloudApi": 200,
+      "maxBusiness": 100,
+      "maxBusinessPro": 50,
+      "monthlyValue": 1000,
+      "recurrence": "Monthly"
     },
     {
-      "id": "3",
-      "name": "Company C",
+      "id": 3,
+      "name": "Quality Innovations Ltd.",
       "cnpj": "11223344000103",
-      "description": "Description for Company C",
-      "chanels": 1,
+      "description": "A trusted company known for its commitment to quality and innovation.",
       "thumbnail": null,
-      "users": 5,
       "active": false,
       "address": {
-        "neighborhood": "Neighborhood C",
-        "city": "City C",
-        "state": "State C",
+        "neighborhood": "Quality District",
+        "city": "Innovation Hub",
+        "state": "Excellence State",
         "zipCode": "34567-890"
       },
       "contact": {
-        "phone": "1122334455",
-        "email": "contact@companyc.com"
+        "phone": "+1-800-555-1122",
+        "email": "contact@qualityinnovations.com"
       },
-      "createdAt": "2023-10-01T00:00:00Z"
-    },
-    {
-      "id": "5",
-      "name": "Company E",
-      "cnpj": "33445566000105",
-      "description": "Description for Company E",
-      "chanels": 2,
-      "thumbnail": null,
-      "users": 8,
-      "active": false,
-      "address": {
-        "neighborhood": "Neighborhood E",
-        "city": "City E",
-        "state": "State E",
-        "zipCode": "56789-012"
-      },
-      "contact": {
-        "phone": "3344556677",
-        "email": "contact@companye.com"
-      },
-      "createdAt": "2023-10-01T00:00:00Z"
+      "createdAt": "2023-10-01T00:00:00Z",
+      "enableCSAT": false,
+      "enableAI": true,
+      "enableTrendVoip": false,
+      "maxCloudApi": 50,
+      "maxBusiness": 20,
+      "maxBusinessPro": 10,
+      "monthlyValue": 300,
+      "recurrence": "Monthly"
     }
   ]
 }

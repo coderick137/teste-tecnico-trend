@@ -34,6 +34,10 @@
           type="text"
           formControlName="cnpj"
           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          (input)="onCNPJChange($event)"
+          maxlength="18"
+          pattern="\d*"
+          oninput="this.value = this.value.replace(/\D/g, '')"
         />
         @if (companyForm.get('cnpj')?.touched &&
         companyForm.get('cnpj')?.invalid) {
@@ -78,6 +82,10 @@
           type="text"
           formControlName="phone"
           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          (input)="onPhoneChange($event)"
+          maxlength="15"
+          pattern="\d*"
+          oninput="this.value = this.value.replace(/\D/g, '')"
         />
       </div>
     </fieldset>
@@ -139,6 +147,10 @@
           type="text"
           formControlName="zipCode"
           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          (input)="onZipCodeChange($event)"
+          maxlength="10"
+          pattern="\d*"
+          oninput="this.value = this.value.replace(/\D/g, '')"
         />
       </div>
     </fieldset>
@@ -246,14 +258,16 @@
           for="monthlyValue"
           class="block mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300"
         >
-          Monthly Value
+          Monthly
         </label>
         <input
           id="monthlyValue"
-          type="number"
-          min="0"
+          type="text"
           formControlName="monthlyValue"
+          [value]="formattedMonthlyValue"
           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          (input)="onCurrencyChange($event)"
+          placeholder="R$ 0,00"
         />
       </div>
 
@@ -269,10 +283,10 @@
           formControlName="recurrence"
           class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none"
         >
-          <option value="Mensal">Mensal</option>
-          <option value="Trimestral">Trimestral</option>
-          <option value="Semestral">Semestral</option>
-          <option value="Anual">Anual</option>
+          <option value="Monthly">Monthly</option>
+          <option value="Quarterly">Quarterly</option>
+          <option value="Semiannual">Semiannual</option>
+          <option value="Annual">Annual</option>
         </select>
       </div>
     </fieldset>
