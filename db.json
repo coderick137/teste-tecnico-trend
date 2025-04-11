@@ -43,27 +43,6 @@
       "createdAt": "2023-10-01T00:00:00Z"
     },
     {
-      "id": "4",
-      "name": "Company D",
-      "cnpj": "22334455000104",
-      "description": "Description for Company D",
-      "chanels": 4,
-      "thumbnail": null,
-      "users": 20,
-      "active": true,
-      "address": {
-        "neighborhood": "Neighborhood D",
-        "city": "City D",
-        "state": "State D",
-        "zipCode": "45678-901"
-      },
-      "contact": {
-        "phone": "2233445566",
-        "email": "contact@companyd.com"
-      },
-      "createdAt": "2023-10-01T00:00:00Z"
-    },
-    {
       "id": "5",
       "name": "Company E",
       "cnpj": "33445566000105",

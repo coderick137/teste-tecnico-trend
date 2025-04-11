@@ -25,14 +25,23 @@ export class CompaniesListComponent {
 
   public deleteCompany(id: number) {
     if (confirm('Are you sure you want to delete this company?')) {
-      this.companyService.deleteCompany(id).subscribe(() => {
-        this.loadAllCompanies();
+      this.companyService.deleteCompany(id).subscribe({
+        next: () => {
+          this.loadAllCompanies();
+        },
+        error: (err) => {
+          console.error('Error deleting company:', err);
+          alert('Failed to delete the company. Please try again.');
+        },
       });
     }
   }
 
   public goToRegister(): void {
-    console.log('Navigating to register page...');
     this.router.navigate(['/register']);
+  }
+
+  public goToEdit(id: number): void {
+    this.router.navigate(['/edit', id]);
   }
 }

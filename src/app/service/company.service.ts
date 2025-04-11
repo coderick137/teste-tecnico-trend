@@ -11,9 +11,15 @@ export class CompanyService {
   constructor(private http: HttpClient) {}
 
   public addCompany(company: any): void {
+    const { id, ...companyData } = company;
+
+    const existingCompany = this.companies.find((c) => c.id === id);
+    if (existingCompany) {
+      this.updateCompany(id, { ...existingCompany, ...companyData });
+      return;
+    }
     const newCompany = {
-      ...company,
-      id: this.companies.length + 1,
+      ...companyData,
       thumbnail: null,
       active: true,
       createdAt: new Date().toISOString(),
@@ -30,16 +36,12 @@ export class CompanyService {
     return this.http.get<any[]>('http://localhost:3000/companies');
   }
 
-  public deleteCompany(id: number): Observable<any[]> {
-    return this.http
-      .delete<any[]>(`http://localhost:3000/companies/${id}`)
-      .pipe(
-        tap(() => {
-          this.companies = this.companies.filter(
-            (company) => company.id !== id
-          );
-        })
-      );
+  public deleteCompany(id: number): Observable<any> {
+    return this.http.delete(`http://localhost:3000/companies/${id}`).pipe(
+      tap(() => {
+        this.companies = this.companies.filter((company) => company.id !== id);
+      })
+    );
   }
 
   public updateCompany(id: number, updatedCompany: any): void {
