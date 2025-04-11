@@ -40,6 +40,7 @@ export class CompanyFormComponent {
         phone: [''],
         email: ['', [Validators.required, Validators.email]],
       }),
+      createdAt: [new Date().toISOString()],
 
       // Módulos ativáveis
       enableCSAT: [false],
@@ -82,14 +83,12 @@ export class CompanyFormComponent {
 
     try {
       if (this.companyForm.value.id) {
-        console.log('Atualizando empresa:', this.companyForm.value);
         this.companyService.updateCompany(
           this.companyForm.value.id,
           this.companyForm.value
         );
         alert('Empresa atualizada com sucesso!');
       } else {
-        console.log('Cadastrando empresa:', this.companyForm.value);
         this.companyService.addCompany(this.companyForm.value);
         alert('Empresa cadastrada com sucesso!');
       }

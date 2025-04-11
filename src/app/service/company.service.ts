@@ -46,12 +46,20 @@ export class CompanyService {
   }
 
   public updateCompany(id: number, updatedCompany: any): void {
+    const existingCompany = this.companies.find((company) => company.id === id);
+    if (existingCompany) {
+      updatedCompany.createdAt = existingCompany.createdAt;
+    }
+
     this.http
       .put(`http://localhost:3000/companies/${id}`, updatedCompany)
       .subscribe(() => {
         const index = this.companies.findIndex((company) => company.id === id);
         if (index !== -1) {
-          this.companies[index] = updatedCompany;
+          this.companies[index] = {
+            ...updatedCompany,
+            createdAt: existingCompany?.createdAt,
+          };
         }
       });
   }
