@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   public isDarkMode;
   public isSidebarOpen: boolean = false;
   public showSidebarContent: boolean = false;
-
+  public isPopoverOpen: boolean = false;
   constructor(private themeService: ThemeService, private router: Router) {
     this.isDarkMode = this.themeService.darkMode$;
   }
@@ -54,5 +54,9 @@ export class DashboardComponent implements OnInit {
     } else {
       this.showSidebarContent = false;
     }
+  }
+
+  togglePopover(): void {
+    this.isPopoverOpen = !this.isPopoverOpen;
   }
 }
