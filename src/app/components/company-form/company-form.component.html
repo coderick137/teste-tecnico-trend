@@ -33,7 +33,8 @@
           id="cnpj"
           type="text"
           formControlName="cnpj"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="00.000.000/0000-00"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:opacity-50"
           (input)="onCNPJChange($event)"
           maxlength="18"
           pattern="\d*"
@@ -62,7 +63,8 @@
           id="email"
           type="email"
           formControlName="email"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="company@email.com"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:opacity-50"
         />
         @if (contact?.get('email')?.touched && contact?.get('email')?.invalid) {
         <p class="mt-1 text-sm text-red-500 dark:text-red-400">
@@ -81,7 +83,8 @@
           id="phone"
           type="text"
           formControlName="phone"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="(00) 00000-0000"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:opacity-50"
           (input)="onPhoneChange($event)"
           maxlength="15"
           pattern="\d*"
@@ -146,8 +149,10 @@
           id="zipCode"
           type="text"
           formControlName="zipCode"
-          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder:opacity-50"
+
           (input)="onZipCodeChange($event)"
+          placeholder="00000-000"
           maxlength="10"
           pattern="\d*"
           oninput="this.value = this.value.replace(/\D/g, '')"
