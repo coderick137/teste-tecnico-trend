@@ -67,4 +67,8 @@ export class CompanyService {
   public getCompanyById(id: number): Observable<any> {
     return this.http.get<any>(`http://localhost:3000/companies/${id}`);
   }
+
+  public getAddressByZipCode(zipCode: string): Observable<any> {
+    return this.http.get<any>(`https://viacep.com.br/ws/${zipCode}/json/`);
+  }
 }

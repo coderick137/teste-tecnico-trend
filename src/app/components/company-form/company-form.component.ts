@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from '../../service/company.service';
 import { CommonModule } from '@angular/common';
 import { maskZipCode, maskCNPJ, maskPhone } from '../../utils/utils';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-company-form',
@@ -149,9 +150,17 @@ export class CompanyFormComponent {
 
   onZipCodeChange(event: Event): void {
     const inputElement = event.target as HTMLInputElement;
+    const rawCep = inputElement.value || '';
+    const maskedCep = maskZipCode(rawCep);
+    const onlyDigits = rawCep.replace(/\D/g, '');
+
     const cepControl = this.companyForm.get('address.zipCode');
-    if (cepControl && inputElement) {
-      cepControl.setValue(maskZipCode(inputElement.value || ''));
+    if (cepControl) {
+      cepControl.setValue(maskedCep, { emitEvent: false });
+    }
+
+    if (onlyDigits.length === 8) {
+      this.fillAddressData(onlyDigits);
     }
   }
 
@@ -166,5 +175,32 @@ export class CompanyFormComponent {
     });
 
     this.companyForm.get('monthlyValue')?.setValue(numericValue);
+  }
+
+  async fillAddressData(zipCode: string): Promise<void> {
+    try {
+      const addressData = await firstValueFrom(
+        this.companyService.getAddressByZipCode(zipCode)
+      );
+
+      if (addressData && !addressData.erro) {
+        this.address?.patchValue({
+          neighborhood: addressData.bairro,
+          city: addressData.localidade,
+          state: addressData.uf,
+          zipCode: zipCode,
+        });
+      } else {
+        alert('Endereço não encontrado para o CEP informado.');
+      }
+    } catch (error) {
+      alert('Erro ao buscar os dados do endereço.');
+      console.error(error);
+    } finally {
+      const zipCodeControl = this.companyForm.get('address.zipCode');
+      if (zipCodeControl) {
+        zipCodeControl.setValue(maskZipCode(zipCode), { emitEvent: false });
+      }
+    }
   }
 }
