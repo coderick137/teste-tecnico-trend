@@ -3,6 +3,34 @@ import { ThemeService } from '../../service/theme.service';
 import { CommonModule } from '@angular/common';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 
+interface Notification {
+  date: string;
+  notifications: { message: string }[];
+}
+
+export const notificationsByDay: Notification[] = [
+  {
+    date: '2023-03-01',
+    notifications: [
+      { message: 'New user registered' },
+      { message: 'System update available' },
+    ],
+  },
+  {
+    date: '2023-03-02',
+    notifications: [
+      { message: 'Password changed successfully' },
+      { message: 'New comment on your post' },
+    ],
+  },
+  {
+    date: '2023-03-03',
+    notifications: [
+      { message: 'Scheduled maintenance at midnight' },
+      { message: 'New follower added' },
+    ],
+  },
+];
 @Component({
   selector: 'app-dashboard',
   standalone: true,
@@ -18,12 +46,16 @@ export class DashboardComponent implements OnInit {
   public isSidebarOpen: boolean = false;
   public showSidebarContent: boolean = false;
   public isPopoverOpen: boolean = false;
+  public isNotificationsOpen: boolean = false;
+  public notificationsByDay: Notification[] = [];
+
   constructor(private themeService: ThemeService, private router: Router) {
     this.isDarkMode = this.themeService.darkMode$;
   }
 
   ngOnInit(): void {
     this.themeService.init();
+    this.notificationsByDay.push(...notificationsByDay);
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -58,5 +90,9 @@ export class DashboardComponent implements OnInit {
 
   togglePopover(): void {
     this.isPopoverOpen = !this.isPopoverOpen;
+  }
+
+  toggleNotification(): void {
+    this.isNotificationsOpen = !this.isNotificationsOpen;
   }
 }
