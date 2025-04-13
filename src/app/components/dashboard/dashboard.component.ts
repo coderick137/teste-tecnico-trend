@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../service/theme.service';
 import { CommonModule } from '@angular/common';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterModule, RouterOutlet } from '@angular/router';
 
 interface Notification {
   date: string;
@@ -34,7 +34,7 @@ export const notificationsByDay: Notification[] = [
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
 })
@@ -48,6 +48,13 @@ export class DashboardComponent implements OnInit {
   public isPopoverOpen: boolean = false;
   public isNotificationsOpen: boolean = false;
   public notificationsByDay: Notification[] = [];
+  public hoveredMenuIndex: number | null = null;
+
+  public menus = [
+    { label: 'Dashboard', link: '/dashboard', icon: 'dashboard' },
+    { label: 'Reports', link: '/reports', icon: 'bar_chart' },
+    { label: 'Settings', link: '/settings', icon: 'settings' },
+  ];
 
   constructor(private themeService: ThemeService, private router: Router) {
     this.isDarkMode = this.themeService.darkMode$;

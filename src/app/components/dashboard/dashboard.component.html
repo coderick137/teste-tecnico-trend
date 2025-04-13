@@ -26,63 +26,34 @@
       </div>
 
       <ul class="flex flex-col gap-4 px-1">
-        <li>
+        <li
+          *ngFor="let menu of menus; let i = index"
+          (mouseenter)="hoveredMenuIndex = i"
+          (mouseleave)="hoveredMenuIndex = null"
+          [ngClass]="{
+            'bg-gray-200 dark:bg-gray-600 scale-105 w-52':
+              hoveredMenuIndex === i && !isSidebarOpen,
+          }"
+          class="transition-all duration-300 ease-in-out rounded-md overflow-hidden hover:bg-gray-200 dark:hover:bg-gray-600"
+        >
           <a
-            routerLink="/dashboard"
+            [routerLink]="menu.link"
             routerLinkActive="active"
-            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer py-3 px-2"
+            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 cursor-pointer py-3 px-2"
           >
             <i class="material-icons text-blue-800 dark:text-gray-200">
-              dashboard
+              {{ menu.icon }}
             </i>
             <span
-              class="transition-all duration-700 ease-in-out origin-left"
+              class="transition-all duration-200 ease-in-out origin-left"
               [ngClass]="{
-                'translate-x-0 opacity-100': isSidebarOpen,
-                '-translate-x-4 opacity-0': !isSidebarOpen
+                'translate-x-0 opacity-100':
+                  isSidebarOpen || hoveredMenuIndex === i,
+                '-translate-x-4 opacity-0':
+                  !isSidebarOpen && hoveredMenuIndex !== i
               }"
             >
-              Dashboard
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/reports"
-            routerLinkActive="active"
-            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 cursor-pointer py-3 px-2"
-          >
-            <i class="material-icons text-blue-800 dark:text-gray-200">
-              bar_chart
-            </i>
-            <span
-              class="transition-all duration-700 ease-in-out origin-left"
-              [ngClass]="{
-                'translate-x-0 opacity-100': isSidebarOpen,
-                '-translate-x-4 opacity-0': !isSidebarOpen
-              }"
-            >
-              Reports
-            </span>
-          </a>
-        </li>
-        <li>
-          <a
-            routerLink="/settings"
-            routerLinkActive="active"
-            class="flex items-center gap-4 text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 hover:bg-gray-200 dark:hover:bg-gray-600 py-3 px-2 cursor-pointer"
-          >
-            <i class="material-icons text-blue-800 dark:text-gray-200">
-              settings
-            </i>
-            <span
-              class="transition-all duration-700 ease-in-out origin-left"
-              [ngClass]="{
-                'translate-x-0 opacity-100': isSidebarOpen,
-                '-translate-x-4 opacity-0': !isSidebarOpen
-              }"
-            >
-              Settings
+              {{ menu.label }}
             </span>
           </a>
         </li>
